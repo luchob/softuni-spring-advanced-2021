@@ -1,8 +1,10 @@
 package bg.sofunit.rest.web;
 
 import bg.sofunit.rest.model.Author;
+import bg.sofunit.rest.model.Book;
 import bg.sofunit.rest.repository.AuthorRepository;
 import bg.sofunit.rest.repository.AuthorsSearchSpecification;
+import bg.sofunit.rest.repository.BookRepository;
 import java.util.List;
 import java.util.Optional;
 import org.springframework.http.ResponseEntity;
@@ -19,9 +21,12 @@ import org.springframework.web.util.UriComponentsBuilder;
 public class AuthorsController implements AuthorsNamespace {
 
   private final AuthorRepository authorRepository;
+  private final BookRepository bookRepository;
 
-  public AuthorsController(AuthorRepository authorRepository) {
+  public AuthorsController(AuthorRepository authorRepository,
+      BookRepository bookRepository) {
     this.authorRepository = authorRepository;
+    this.bookRepository = bookRepository;
   }
 
   @GetMapping
@@ -38,6 +43,16 @@ public class AuthorsController implements AuthorsNamespace {
     return authorOpt.map(ResponseEntity::ok).
         orElseGet(() -> ResponseEntity.notFound().build());
   }
+
+  @GetMapping("/{authorid}/books")
+  public List<Book> findBooks(@PathVariable Long authorid) {
+    // TODO: 404
+    Author author = authorRepository.
+        findById(authorid).get();
+
+    return bookRepository.findBooksByAuthor(author);
+  }
+
 
   @PostMapping
   public ResponseEntity<Author> create(
