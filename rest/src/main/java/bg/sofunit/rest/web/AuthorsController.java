@@ -9,8 +9,11 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.util.UriComponentsBuilder;
 
 @RestController
 public class AuthorsController implements AuthorsNamespace {
@@ -34,6 +37,16 @@ public class AuthorsController implements AuthorsNamespace {
         findById(id);
     return authorOpt.map(ResponseEntity::ok).
         orElseGet(() -> ResponseEntity.notFound().build());
+  }
+
+  @PostMapping
+  public ResponseEntity<Author> create(
+      @RequestBody Author author,
+      UriComponentsBuilder ucBuilder) {
+    Author newAuthor = authorRepository.save(author);
+    return ResponseEntity.created(
+        ucBuilder.path("/authors/{authorId}").buildAndExpand(newAuthor.getId()).toUri()
+    ).build();
   }
 
   @DeleteMapping("/{id}")
