@@ -10,34 +10,16 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 @Configuration
 public class SecurityConfig extends WebSecurityConfigurerAdapter {
 
-  private final PasswordEncoder passwordEncoder;
-  private final DemoUserDetailsService userDetailsService;
-
-  public SecurityConfig(
-      PasswordEncoder passwordEncoder,
-      DemoUserDetailsService userDetailsService) {
-    this.passwordEncoder = passwordEncoder;
-    this.userDetailsService = userDetailsService;
-  }
-
   @Override
   protected void configure(AuthenticationManagerBuilder auth) throws Exception {
-    auth.
-        userDetailsService(userDetailsService).
-        passwordEncoder(passwordEncoder);
+    //TODO:
+    throw new UnsupportedOperationException();
   }
 
   @Override
   protected void configure(HttpSecurity http) throws Exception {
-    http.
-        authorizeRequests().
-        antMatchers("/h2_console/**", "/home").permitAll().
-        antMatchers("/admin").hasRole("ADMIN").
-        antMatchers("/user").hasRole("USER").
-        and().formLogin();
 
-    //h2 database
-    http.csrf().disable();
-    http.headers().frameOptions().disable();
+    //TODO:
+    throw new UnsupportedOperationException();
   }
 }

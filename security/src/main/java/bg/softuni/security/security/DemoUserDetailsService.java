@@ -16,32 +16,9 @@ import org.springframework.stereotype.Component;
 @Component
 public class DemoUserDetailsService implements UserDetailsService {
 
-  private final UserRepository userRepository;
-
-  public DemoUserDetailsService(UserRepository userRepository) {
-    this.userRepository = userRepository;
-  }
-
   @Override
   public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
-    Optional<UserEntity> demoUser = userRepository.findByName(username);
-
-    return demoUser.
-        map(this::mapToUserDetails).
-        orElseThrow(() -> new UsernameNotFoundException("User " + username +" not found!"));
-  }
-
-  private UserDetails mapToUserDetails(UserEntity userEntity) {
-    return new User(userEntity.getName(),
-        userEntity.getPassword(),
-        userEntity.
-            getRoles().
-            stream().
-            map(this::mapToGrantedAuthority).
-            collect(Collectors.toList()));
-  }
-
-  private GrantedAuthority mapToGrantedAuthority(UserRoleEntity userRoleEntity) {
-    return new SimpleGrantedAuthority("ROLE_" + userRoleEntity.getRole());
+    //TODO
+    throw new UnsupportedOperationException();
   }
 }
