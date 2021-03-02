@@ -7,7 +7,7 @@ public class StudentViewModel {
   private Long id;
   private String name;
   private Integer age;
-  private Set<OrderViewModel> orders;
+  //private Set<OrderViewModel> orders;
 
   public Long getId() {
     return id;
@@ -36,13 +36,13 @@ public class StudentViewModel {
     return this;
   }
 
-  public Set<OrderViewModel> getOrders() {
-    return orders;
-  }
-
-  public StudentViewModel setOrders(
-      Set<OrderViewModel> orders) {
-    this.orders = orders;
-    return this;
-  }
+//  public Set<OrderViewModel> getOrders() {
+//    return orders;
+//  }
+//
+//  public StudentViewModel setOrders(
+//      Set<OrderViewModel> orders) {
+//    this.orders = orders;
+//    return this;
+//  }
 }

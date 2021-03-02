@@ -23,5 +23,11 @@ import static org.springframework.hateoas.server.mvc.WebMvcLinkBuilder.methodOn;
 @RestController
 @RequestMapping("/orders")
 public class OrdersController {
-    //TODO:
+
+  @PostMapping
+  public ResponseEntity<OrderViewModel> enroll(OrderViewModel orderViewModel) {
+    //TODO: Create new order
+    //TODO: check if the course is enabled!
+    return ResponseEntity.ok().build();
+  }
 }

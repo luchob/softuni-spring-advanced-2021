@@ -1,11 +1,13 @@
 package bg.softuni.hateoas.model.view;
 
 import java.math.BigDecimal;
+import net.minidev.json.annotate.JsonIgnore;
 
 public class CourseViewModel {
   private Long id;
   private String name;
   private BigDecimal price;
+  @JsonIgnore
   private boolean enabled;
 
   public Long getId() {
