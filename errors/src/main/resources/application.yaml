@@ -1,0 +1,25 @@
+server:
+  error:
+    include-message: always
+    include-stacktrace: always
+
+resilience4j:
+  circuitbreaker:
+    backends:
+      sampleConfig:
+        slidingWindowType: COUNT_BASED
+        slidingWindowSize: 5
+        failureRateThreshold: 20
+        waitDurationInOpenState: 1
+  retry:
+    backends:
+      sampleConfig:
+        maxRetryAttempts: 3
+        waitDuration: 1000
+        enableExponentialBackoff: false
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "*"
