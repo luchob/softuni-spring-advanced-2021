@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en"  xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Home</title>
+</head>
+<body>
+    <h1>Upload Successful</h1>
+    <a href="/">Back to Index</a>
+    <th:block th:each="s : ${students}" th:object="${s}">
+       <div class="row">
+           <h3 th:text="*{name}"></h3>
+           <img th:src="*{imgUrl}" alt="Student picture" width="300px">
+       </div>
+    </th:block>
+</body>
+</html>
