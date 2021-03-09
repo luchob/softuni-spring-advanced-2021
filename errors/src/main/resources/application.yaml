@@ -9,7 +9,7 @@ resilience4j:
       sampleConfig:
         slidingWindowType: COUNT_BASED
         slidingWindowSize: 5
-        failureRateThreshold: 20
+        failureRateThreshold: 50
         waitDurationInOpenState: 1
   retry:
     backends:
