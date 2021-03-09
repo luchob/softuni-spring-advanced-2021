@@ -22,6 +22,6 @@ spring:
       enabled: true
 
 cloudinary:
-  cloud-name: <topsecret>
-  api-key: <topsecret>
-  api-secret: <topsecret>
+  cloud-name: luchob
+  api-key: 679249556851288
+  api-secret: "${CLOUDINARY_SECRET}"

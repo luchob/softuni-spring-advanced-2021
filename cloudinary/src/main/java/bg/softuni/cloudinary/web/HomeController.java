@@ -18,7 +18,7 @@ public class HomeController {
     }
 
     @PostMapping("/add")
-    public String add(Model model,  @ModelAttribute("studentBindingModel")
+    public String add(Model model,  @ModelAttribute("studentServiceModel")
         StudentServiceModel studentServiceModel) throws IOException {
 
         this.studentService.addStudent(studentServiceModel);
