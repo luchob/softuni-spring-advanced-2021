@@ -1,0 +1,1 @@
+#org.springframework.boot.SpringApplicationRunListener=bg.softuni.events.run.MySpringApplicationRunListener
