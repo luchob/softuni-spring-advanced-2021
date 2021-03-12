@@ -6,11 +6,10 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
-import org.springframework.boot.autoconfigure.domain.EntityScan;
 
 @Entity
 @Table(name = "birds")
-public class Bird {
+public class BirdEntity {
 
   @Id
   @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -24,7 +23,7 @@ public class Bird {
     return id;
   }
 
-  public Bird setId(long id) {
+  public BirdEntity setId(long id) {
     this.id = id;
     return this;
   }
@@ -33,7 +32,7 @@ public class Bird {
     return breed;
   }
 
-  public Bird setBreed(String breed) {
+  public BirdEntity setBreed(String breed) {
     this.breed = breed;
     return this;
   }
