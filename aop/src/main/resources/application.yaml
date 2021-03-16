@@ -1,0 +1,8 @@
+slos-config:
+  slos:
+    -
+      id: operation1
+      threshold: 120
+    -
+      id: operation2
+      threshold: 15
