@@ -7,7 +7,6 @@ import org.springframework.stereotype.Component;
 @Component
 public class AopTest implements CommandLineRunner {
 
-
   private final Student student;
 
   public AopTest(Student student) {
@@ -16,6 +15,6 @@ public class AopTest implements CommandLineRunner {
 
   @Override
   public void run(String... args) throws Exception {
-    student.echo("Hello!");
+    student.sayHello();
   }
 }
