@@ -15,6 +15,6 @@ public class AopTest implements CommandLineRunner {
 
   @Override
   public void run(String... args) throws Exception {
-    student.sayHello();
+    student.echo("Hello, world!");
   }
 }
