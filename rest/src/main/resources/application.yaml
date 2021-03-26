@@ -8,9 +8,16 @@ spring:
     hikari:
       connection-test-query: SELECT 1
   jpa:
+    #    For MySQL 8
+    #database-platform: org.hibernate.dialect.MySQL8Dialect
+    #For MySQL 5
+    database-platform: org.hibernate.dialect.MySQL5InnoDBDialect
     hibernate:
-      ddl-auto: create-drop
+      ddl-auto: update
     open-in-view: false
+    properties:
+      hibernate:
+        format_sql: true
 logging:
   level:
     org.springframework.security: DEBUG
