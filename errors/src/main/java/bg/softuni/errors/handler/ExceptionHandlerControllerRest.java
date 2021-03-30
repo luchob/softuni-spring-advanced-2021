@@ -15,6 +15,11 @@ public class ExceptionHandlerControllerRest {
     throw new StudentNotFoundException("Sorry, not student");
   }
 
+  @GetMapping("/student-ex")
+  public Student getStudentEx() {
+    throw new IllegalArgumentException("Sorry, booom!");
+  }
+
   @ResponseStatus(value = HttpStatus.NOT_FOUND)
   @ExceptionHandler({StudentNotFoundException.class})
   public Student handleException() {

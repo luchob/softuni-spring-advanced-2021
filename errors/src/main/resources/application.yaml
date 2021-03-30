@@ -1,7 +1,7 @@
 server:
   error:
     include-message: always
-    include-stacktrace: always
+    include-stacktrace: never
 
 resilience4j:
   circuitbreaker:
